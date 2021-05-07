@@ -29,7 +29,7 @@ async function getSasUri(permission, fileRelativePath) {
     let obj = {
         paths
     }
-    const url =  `https://${process.env.ENDPOINT}/api/artifacts/${process.env.TENANT_ID}/sasuri/${process.env.RUN_ID}?op=${permission}`;
+    const url =  `https://${process.env.ENDPOINT}/api/artifacts/${process.env.TENANT_ID}/sasuri/${process.env.GITHUB_RUN_ID}?op=${permission}`;
     const method = 'POST';
     const data = JSON.stringify(obj);
     const config = await getSasTokenConfig(method, url, data);
@@ -58,8 +58,8 @@ async function createBlobInContainer(uri, file) {
 async function registerTestResults() {
   try {
     fs.writeFileSync(testResultsFile, JSON.stringify(testSuites));
-    //childProcess.execSync(`zip testResults ${testResultsFile}`);
-    childProcess.execSync(`C:\\Windows\\System32\\tar.exe -a -c -f ${testResultsFileZipped} ${testResultsFile}`);
+    childProcess.execSync(`zip testResults ${testResultsFile}`);
+    //childProcess.execSync(`C:\\Windows\\System32\\tar.exe -a -c -f ${testResultsFileZipped} ${testResultsFile}`);
 
     const sasUri = sasUriMap.get(`${testResultsFileZipped}`);
     if (fs.existsSync(testResultsFileZipped) && sasUri ) {
