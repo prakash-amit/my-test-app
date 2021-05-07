@@ -1,0 +1,11 @@
+{
+    "reporters": [
+        "default",
+        ["./jest-playwright-reporter/PlaywrightReporter.js",
+            {}
+          ]
+    ],
+    "testMatch": ["**/__tests__/**/*.+(js)", "**/?(*.)+(spec|test).+(js)"],
+    "testRunner": "jest-circus/runner",
+    "maxWorkers": 2
+}
