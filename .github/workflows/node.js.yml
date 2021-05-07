@@ -16,6 +16,8 @@ jobs:
        TENANT_ID: 123
        BRANCH_NAME: ${{github.ref}}
        RUN_ID: ${{github.run_id}}
+       TRIGGER_TYPE: ${{github.event_name}}
+       TRIGGER_ID: ${{github.sha}}
     runs-on: ubuntu-latest
 
     strategy:
