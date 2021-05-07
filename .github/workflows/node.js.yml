@@ -14,6 +14,8 @@ jobs:
     env:
        ENDPOINT: playwright-service.eastus.cloudapp.azure.com
        TENANT_ID: 123
+       BRANCH_NAME: ${{github.ref}}
+       RUN_ID: ${{github.run.id}}
     runs-on: ubuntu-latest
 
     strategy:
