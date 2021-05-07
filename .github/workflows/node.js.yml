@@ -11,7 +11,9 @@ on:
 
 jobs:
   build:
-
+    env:
+       ENDPOINT: playwright-service.eastus.cloudapp.azure.com
+       TENANT_ID: 123
     runs-on: ubuntu-latest
 
     strategy:
