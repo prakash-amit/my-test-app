@@ -18,6 +18,7 @@ jobs:
        RUN_ID: ${{github.run_id}}
        TRIGGER_TYPE: ${{github.event_name}}
        TRIGGER_ID: ${{github.sha}}
+       WORKFLOW_ID: ${{github.run_number}}
     runs-on: ubuntu-latest
 
     strategy:
